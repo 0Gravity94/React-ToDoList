@@ -3,6 +3,7 @@ import Layout from "../components/Layout";
 import Button from "../components/Button";
 import todoEmptyState from "../assets/todoEmptyState.png";
 import { TbChevronLeft, TbPencil } from "react-icons/tb";
+import ListItems from "../components/ListItems";
 
 function DetailActivity() {
   return (
@@ -30,12 +31,13 @@ function DetailActivity() {
             label="+ Tambah"
           />
         </div>
-        <div
+        {/* <div
           data-cy="list-empty-state"
           className="grid justify-items-center lg:flex lg:flex-wrap justify-center mx-5 mt-36 lg:mx-80 lg:mt-16 lg:mb-64 cursor-pointer"
         >
           <img src={todoEmptyState} alt="list-empty" />
-        </div>
+        </div> */}
+        <ListItems />
       </Layout>
     </div>
   );
