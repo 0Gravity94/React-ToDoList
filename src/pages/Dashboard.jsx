@@ -3,6 +3,7 @@ import Layout from "../components/Layout";
 import Button from "../components/Button";
 import activityEmptyState from "../assets/activityEmptyState.png";
 import activityEmptyStateMobile from "../assets/activityEmptyStateMobile.png";
+import CardActivity from "../components/CardActivity";
 
 import "../styles/App.css";
 
@@ -19,7 +20,7 @@ function Dashboard() {
             label="+ Tambah"
           />
         </div>
-        <div
+        {/* <div
           data-cy="activity-empty-state"
           className="grid justify-items-center lg:flex lg:flex-wrap justify-center mx-5 mt-36 lg:mx-80 lg:mt-16 lg:mb-64"
         >
@@ -36,7 +37,8 @@ function Dashboard() {
           <h1 className="lg:hidden text-gray-600 text-base font-semibold text-center mt-9 mx-20">
             Buat activity pertamamu
           </h1>
-        </div>
+        </div> */}
+        {/* <CardActivity /> */}
       </Layout>
     </div>
   );
