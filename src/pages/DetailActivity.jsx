@@ -4,6 +4,7 @@ import Button from "../components/Button";
 import todoEmptyState from "../assets/todoEmptyState.png";
 import { TbChevronLeft, TbPencil } from "react-icons/tb";
 import ListItems from "../components/ListItems";
+import Sort from "../components/Sort";
 
 function DetailActivity() {
   return (
@@ -26,10 +27,13 @@ function DetailActivity() {
               data-cy="item-edit-button"
             />
           </div>
-          <Button
-            className="w-24 h-9 lg:w-40 lg:h-14 bg-BgBlue text-white text-xs lg:text-lg text-center font-semibold rounded-full py-2.5 lg:py-3.5"
-            label="+ Tambah"
-          />
+          <div className="flex gap-4">
+            <Sort />
+            <Button
+              className="w-24 h-9 lg:w-40 lg:h-14 bg-BgBlue text-white text-xs lg:text-lg text-center font-semibold rounded-full py-2.5 lg:py-3.5"
+              label="+ Tambah"
+            />
+          </div>
         </div>
         {/* <div
           data-cy="list-empty-state"
