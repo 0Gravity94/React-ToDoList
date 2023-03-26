@@ -55,7 +55,7 @@ function Dashboard(props) {
 
   return (
     <Layout>
-      <div className="flex justify-between my-5 mx-7 lg:my-12 lg:mx-56">
+      <div className="flex justify-between my-5 mx-7 lg:my-12 lg:mx-56 over">
         <h1
           data-cy="activity-title"
           className="text-base lg:text-4xl font-bold text-Title"

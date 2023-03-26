@@ -1,6 +1,5 @@
 import React from "react";
-import Button from "../components/Button";
-import { TbTrash } from "react-icons/tb";
+import ModalDelete from "./ModalDelete";
 
 function CardActivity(props) {
   return (
@@ -23,12 +22,7 @@ function CardActivity(props) {
         >
           {props.date}
         </p>
-        <a href="#modal-delete">
-          <TbTrash
-            data-cy="activity-item-delete-button"
-            className="text-Line1 cursor-pointer"
-          />
-        </a>
+        <ModalDelete data-cy="activity-item-delete-button" />
       </div>
     </div>
   );
