@@ -3,16 +3,13 @@ import { TbAlertTriangle, TbTrash } from "react-icons/tb";
 
 function ModalDelete(props) {
   return (
-    <div>
+    <div data-cy="modal-delete">
       <label htmlFor="my-modal" className="text-base text-Line1 cursor-pointer">
         <TbTrash />
       </label>
       <input type="checkbox" id="my-modal" className="modal-toggle" />
       <div className="modal">
-        <div
-          data-cy="modal-delete"
-          className="modal-box flex flex-col items-center justify-center h-72 w-80 lg:h-80 lg:w-96 bg-white shadow-md rounded-xl lg:py-11 lg:px-16"
-        >
+        <div className="modal-box flex flex-col items-center justify-center h-72 w-80 lg:h-80 lg:w-96 bg-white shadow-md rounded-xl lg:py-11 lg:px-16">
           <TbAlertTriangle
             data-cy="modal-delete-icon"
             className="text-PriorityRed text-9xl"
