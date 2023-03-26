@@ -7,9 +7,8 @@ function CardActivity(props) {
     <div
       data-cy="activity-item"
       className="grid content-between w-36 h-36 lg:w-52 lg:h-52 bg-white pt-3 pb-4 px-4 lg:px-7 lg:py-6 rounded-xl shadow-md cursor-pointer"
-      onClick={props.onNavigate}
     >
-      <div>
+      <div onClick={props.onNavigate}>
         <h1
           data-cy="activity-item-title"
           className="text-Title text-sm lg:text-lg font-bold"
@@ -24,11 +23,12 @@ function CardActivity(props) {
         >
           {props.date}
         </p>
-        <TbTrash
-          data-cy="activity-item-delete-button"
-          onClick={props.delete}
-          className="text-Line1 cursor-pointer"
-        />
+        <a href="#modal-delete">
+          <TbTrash
+            data-cy="activity-item-delete-button"
+            className="text-Line1 cursor-pointer"
+          />
+        </a>
       </div>
     </div>
   );
