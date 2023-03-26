@@ -6,6 +6,7 @@ import Button from "../components/Button";
 import moment from "moment/moment";
 import DashboardEmpty from "../components/DashboardEmpty";
 import CardActivity from "../components/CardActivity";
+import ModalDelete from "../components/ModalDelete";
 
 import "../styles/App.css";
 
@@ -69,6 +70,7 @@ function Dashboard(props) {
           + Tambah
         </button>
       </div>
+      <ModalDelete />
       {/* <DashboardEmpty /> */}
       {datasArray[3] !== null ? (
         <div className="grid grid-flow-row auto-rows-max grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-20 mt-11 mx-5 lg:mx-56">
