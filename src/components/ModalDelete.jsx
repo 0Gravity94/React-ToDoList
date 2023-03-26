@@ -5,30 +5,6 @@ import { useState } from "react";
 import { TbAlertTriangle, TbTrash } from "react-icons/tb";
 
 function ModalDelete(props) {
-  const [datas, setDatas] = useState([]);
-
-  const datasArray = Object.keys(datas).map((k) => datas[k]);
-  console.log(datasArray);
-
-  useEffect(() => {
-    fetchActivities();
-  }, []);
-
-  function fetchActivities() {
-    axios
-      .get(
-        `https://todo.api.devcode.gethired.id/activity-groups?email=reitodoapp@ymail.co`
-      )
-      .then((res) => {
-        const results = res.data;
-        setDatas(results);
-        console.log(results);
-      })
-      .catch((err) => {
-        alert(err.toString());
-      });
-  }
-
   function handleDelete(id) {
     axios
       .delete(

@@ -32,8 +32,7 @@ function Dashboard(props) {
       .then(() => {
         location.reload();
       })
-      .catch((err) => {
-        const { data } = err.response;
+      .catch(() => {
         alert("failed to add new activity");
       });
   }
