@@ -10,15 +10,25 @@ function CardActivity(props) {
       onClick={props.onClick}
     >
       <div>
-        <h1 className="text-Title text-sm lg:text-lg font-bold">
+        <h1
+          data-cy="activity-item-title"
+          className="text-Title text-sm lg:text-lg font-bold"
+        >
           {props.title}
         </h1>
       </div>
       <div className="flex justify-between">
-        <p className="text-Line1 text-xs lg:text-sm font-medium">
+        <p
+          data-cy="activity-item-date"
+          className="text-Line1 text-xs lg:text-sm font-medium"
+        >
           {props.date}
         </p>
-        <TbTrash onClick={props.onClick} className="text-Line1" />
+        <TbTrash
+          data-cy="activity-item-delete-button"
+          onClick={props.onClick}
+          className="text-Line1"
+        />
       </div>
     </div>
   );
