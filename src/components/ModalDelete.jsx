@@ -12,7 +12,7 @@ function ModalDelete(props) {
         `https://todo.api.devcode.gethired.id/activity-groups?email=reitodoapp@ymail.co/${id}`
       )
       .then(() => {
-        alert(<ModalInformation />);
+        alert("activity deleted");
       })
       .catch(() => {
         alert("failed");

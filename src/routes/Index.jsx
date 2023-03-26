@@ -8,7 +8,7 @@ function Index() {
     <BrowserRouter>
       <Routes>
         <Route exact path="/" element={<Dashboard />} />
-        <Route path="/detail/:id_activity" element={<DetailActivity />} />
+        <Route path="/detail/:id" element={<DetailActivity />} />
       </Routes>
     </BrowserRouter>
   );
