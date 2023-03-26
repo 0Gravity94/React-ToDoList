@@ -19,12 +19,20 @@ function Dashboard(props) {
     fetchActivities();
   }, []);
 
-  // https://todo.api.devcode.gethired.id/activity-groups?email=reitodoapp@ymail.co
+  function addActivity() {
+    const body = {
+      email: "reitodoapp@ymail.co",
+      title: "New Activity",
+    };
+    axios.post(
+      `https://todo.api.devcode.gethired.id/activity-groups?email=reitodoapp@ymail.co`
+    );
+  }
 
   function fetchActivities() {
     axios
       .get(
-        `https://todo.api.devcode.gethired.id/activity-groups?email=yoga%2B1%40skyshi.io`
+        `https://todo.api.devcode.gethired.id/activity-groups?email=reitodoapp@ymail.co`
       )
       .then((res) => {
         const results = res.data;
@@ -52,17 +60,20 @@ function Dashboard(props) {
         />
       </div>
       {/* <DashboardEmpty /> */}
-      <div className="grid grid-flow-row auto-rows-max grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-20 mt-11 mx-5 lg:mx-56">
-        {datasArray[3]?.map((data) => (
-          <CardActivity
-            title={data.title}
-            date={moment(data.created_at).format("LL")}
-            onNavigate={() => props.navigate(`/detail/${data.id}`)}
-            // delete={() => handleDelete(data)}
-          />
-        ))}
-        <CardActivity />
-      </div>
+      {datasArray[3] !== null ? (
+        <div className="grid grid-flow-row auto-rows-max grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-20 mt-11 mx-5 lg:mx-56">
+          {datasArray[3]?.map((data) => (
+            <CardActivity
+              title={data.title}
+              date={moment(data.created_at).format("LL")}
+              onNavigate={() => props.navigate(`/detail/${data.id}`)}
+              // delete={() => handleDelete(data)}
+            />
+          ))}
+        </div>
+      ) : (
+        <DashboardEmpty />
+      )}
     </Layout>
   );
 }
