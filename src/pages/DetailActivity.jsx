@@ -7,6 +7,8 @@ import Button from "../components/Button";
 import { TbChevronLeft, TbPencil } from "react-icons/tb";
 import DetailEmpty from "../components/DetailEmpty";
 import Sort from "../components/Sort";
+import modalAddTodo from "../components/modalAddTodo";
+import ModalAddTodo from "../components/modalAddTodo";
 
 function DetailActivity(props) {
   const [datas, setDatas] = useState([]);
@@ -32,6 +34,20 @@ function DetailActivity(props) {
       });
   }
 
+  function addListItems() {
+    axios
+      .post(`https://todo.api.devcode.gethired.id/todo-items`, {
+        activity_group_id: { id },
+        title: { title },
+      })
+      .then(() => {
+        location.reload();
+      })
+      .catch(() => {
+        alert("failed to add new activity");
+      });
+  }
+
   return (
     <div data-cy="activity-item">
       <Layout>
@@ -53,13 +69,9 @@ function DetailActivity(props) {
               data-cy="todo-title-edit-button"
             />
           </div>
-          <div className="flex gap-4">
+          <div className="flex justify-center items-center gap-4">
             <Sort />
-            <Button
-              data-cy="todo-add-button"
-              className="w-24 h-9 lg:w-40 lg:h-14 bg-BgBlue text-white text-xs lg:text-lg text-center font-semibold rounded-full py-2.5 lg:py-3.5"
-              label="+ Tambah"
-            />
+            <ModalAddTodo />
           </div>
         </div>
         <DetailEmpty />

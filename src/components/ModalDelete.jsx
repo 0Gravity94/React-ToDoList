@@ -9,7 +9,7 @@ function ModalDelete(props) {
   function handleDelete(id) {
     axios
       .delete(
-        `https://todo.api.devcode.gethired.id/activity-groups?email=reitodoapp@ymail.co/${id}`
+        `https://todo.api.devcode.gethired.id/activity-groups?email=reitodoapp@ymail.co/:${id}`
       )
       .then(() => {
         alert("activity deleted");
