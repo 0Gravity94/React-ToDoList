@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
-import { useEffect } from "react";
-import { useState } from "react";
+
+import Button from "./Button";
 import { TbAlertTriangle, TbTrash } from "react-icons/tb";
 
 function ModalDelete(props) {
@@ -55,13 +55,12 @@ function ModalDelete(props) {
             >
               Batal
             </label>
-            <button
+            <Button
               data-cy="modal-delete-confirm-button"
-              className="w-28 h-12 lg:w-36 lg:h-14 bg-PriorityRed rounded-full lg:py-3 lg:px-3 text-white"
+              className="flex justify-center items-center w-28 h-12 lg:w-36 lg:h-14 bg-PriorityRed rounded-full lg:py-3 lg:px-3 text-white cursor-pointer"
               onClick={handleDelete}
-            >
-              Hapus
-            </button>
+              label="Hapus"
+            />
           </div>
         </label>
       </label>
