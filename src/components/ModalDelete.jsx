@@ -23,12 +23,16 @@ function ModalDelete(props) {
 
   return (
     <div data-cy="activity-item-delete-button">
-      <label htmlFor="my-modal" className="text-base text-Line1 cursor-pointer">
+      <label
+        htmlFor="my-modal-4"
+        className="text-base text-Line1 cursor-pointer"
+      >
         <TbTrash />
       </label>
-      <input type="checkbox" id="my-modal" className="modal-toggle" />
-      <div className="modal">
-        <div
+      <input type="checkbox" id="my-modal-4" className="modal-toggle" />
+      <label htmlFor="my-modal-4" className="modal cursor-pointer">
+        <label
+          htmlFor=""
           data-cy="modal-delete"
           className="modal-box flex flex-col items-center justify-center h-72 w-80 lg:h-80 lg:w-96 bg-white shadow-md rounded-xl lg:py-11 lg:px-16"
         >
@@ -45,7 +49,7 @@ function ModalDelete(props) {
           </h3>
           <div className="modal-action flex items-center justify-center w-full h-full space-x-2 md:space-x-3">
             <label
-              htmlFor="my-modal"
+              htmlFor="my-modal-4"
               data-cy="modal-delete-cancel-button"
               className="flex justify-center items-center w-28 h-12 lg:w-36 lg:h-14 bg-BgGray1 rounded-full lg:py-3 lg:px-3 text-Line2 cursor-pointer"
             >
@@ -59,8 +63,8 @@ function ModalDelete(props) {
               Hapus
             </button>
           </div>
-        </div>
-      </div>
+        </label>
+      </label>
     </div>
   );
 }
