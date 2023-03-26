@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 
 import Button from "./Button";
+import ModalInformation from "./ModalInformation";
 import { TbAlertTriangle, TbTrash } from "react-icons/tb";
 
 function ModalDelete(props) {
@@ -11,7 +12,7 @@ function ModalDelete(props) {
         `https://todo.api.devcode.gethired.id/activity-groups?email=reitodoapp@ymail.co/${id}`
       )
       .then(() => {
-        alert("item deleted");
+        alert(<ModalInformation />);
       })
       .catch(() => {
         alert("failed");
