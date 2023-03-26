@@ -22,7 +22,7 @@ function CardActivity(props) {
         >
           {props.date}
         </p>
-        <ModalDelete data-cy="activity-item-delete-button" />
+        <ModalDelete title={props.deleteTitle} />
       </div>
     </div>
   );

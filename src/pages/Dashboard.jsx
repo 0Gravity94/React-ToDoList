@@ -79,6 +79,7 @@ function Dashboard(props) {
               title={data.title}
               date={moment(data.created_at).format("LL")}
               onNavigate={() => props.navigate(`/detail/${data.id}`)}
+              deleteTitle={data.title}
             />
           ))}
         </div>
