@@ -20,14 +20,17 @@ function Dashboard(props) {
   }, []);
 
   function addActivity() {
-    const body = {
-      email: "reitodoapp@ymail.co",
-      title: "New Activity",
-    };
     axios
       .post(
-        `https://todo.api.devcode.gethired.id/activity-groups?email=reitodoapp@ymail.co`
+        `https://todo.api.devcode.gethired.id/activity-groups?email=reitodoapp@ymail.co`,
+        {
+          email: "reitodoapp@ymail.co",
+          title: "New Activity",
+        }
       )
+      .then(() => {
+        location.reload();
+      })
       .catch((err) => {
         const { data } = err.response;
         alert("failed to add new activity");

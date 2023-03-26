@@ -9,9 +9,9 @@ function Header() {
       >
         <h1
           data-cy="header-title"
-          className="text-white text-lg lg:text-2xl  font-bold pl-5 py-4 lg:pl-56 lg:py-9"
+          className="text-white text-lg lg:text-2xl font-bold pl-5 py-4 lg:pl-56 lg:py-9"
         >
-          TO DO LIST APP
+          'TO DO LIST APP'
         </h1>
       </header>
     </div>
