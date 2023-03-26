@@ -11,7 +11,7 @@ function Header() {
           data-cy="header-title"
           className="text-white text-lg lg:text-2xl  font-bold pl-5 py-4 lg:pl-56 lg:py-9"
         >
-          To Do List App
+          TO DO LIST APP
         </h1>
       </header>
     </div>

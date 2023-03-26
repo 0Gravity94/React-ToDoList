@@ -24,9 +24,14 @@ function Dashboard(props) {
       email: "reitodoapp@ymail.co",
       title: "New Activity",
     };
-    axios.post(
-      `https://todo.api.devcode.gethired.id/activity-groups?email=reitodoapp@ymail.co`
-    );
+    axios
+      .post(
+        `https://todo.api.devcode.gethired.id/activity-groups?email=reitodoapp@ymail.co`
+      )
+      .catch((err) => {
+        const { data } = err.response;
+        alert("failed to add new activity");
+      });
   }
 
   function fetchActivities() {
@@ -53,11 +58,13 @@ function Dashboard(props) {
         >
           Activity
         </h1>
-        <Button
+        <button
           data-cy="activity-add-button"
           className="w-24 h-9 lg:w-40 lg:h-14 bg-BgBlue text-white text-xs lg:text-lg text-center font-semibold rounded-full py-2.5 lg:py-3.5"
-          label="+ Tambah"
-        />
+          onClick={addActivity}
+        >
+          + Tambah
+        </button>
       </div>
       {/* <DashboardEmpty /> */}
       {datasArray[3] !== null ? (

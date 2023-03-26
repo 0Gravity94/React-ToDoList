@@ -8,7 +8,7 @@ import Sort from "../components/Sort";
 
 function DetailActivity() {
   return (
-    <div>
+    <div data-cy="activity-item">
       <Layout>
         <div className="flex justify-between my-5 mx-7 lg:my-12 lg:mx-56">
           <div className="flex justify-between items-center gap-9">
