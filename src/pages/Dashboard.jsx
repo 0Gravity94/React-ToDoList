@@ -1,12 +1,41 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import { WithRouter } from "../utils/Navigation";
 import Layout from "../components/Layout";
 import Button from "../components/Button";
+import moment from "moment/moment";
 import DashboardEmpty from "../components/DashboardEmpty";
 import CardActivity from "../components/CardActivity";
 
 import "../styles/App.css";
 
-function Dashboard() {
+function Dashboard(props) {
+  const [datas, setDatas] = useState([]);
+
+  const datasArray = Object.keys(datas).map((k) => datas[k]);
+  console.log(datasArray);
+
+  useEffect(() => {
+    fetchActivities();
+  }, []);
+
+  // https://todo.api.devcode.gethired.id/activity-groups?email=reitodoapp@ymail.co
+
+  function fetchActivities() {
+    axios
+      .get(
+        `https://todo.api.devcode.gethired.id/activity-groups?email=yoga%2B1%40skyshi.io`
+      )
+      .then((res) => {
+        const results = res.data;
+        setDatas(results);
+        console.log(results);
+      })
+      .catch((err) => {
+        alert(err.toString());
+      });
+  }
+
   return (
     <Layout>
       <div className="flex justify-between my-5 mx-7 lg:my-12 lg:mx-56">
@@ -22,9 +51,20 @@ function Dashboard() {
           label="+ Tambah"
         />
       </div>
-      <DashboardEmpty />
+      {/* <DashboardEmpty /> */}
+      <div className="grid grid-flow-row auto-rows-max grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-20 mt-11 mx-5 lg:mx-56">
+        {datasArray[3]?.map((data) => (
+          <CardActivity
+            title={data.title}
+            date={moment(data.created_at).format("LL")}
+            onNavigate={() => props.navigate(`/detail/${data.id}`)}
+            // delete={() => handleDelete(data)}
+          />
+        ))}
+        <CardActivity />
+      </div>
     </Layout>
   );
 }
 
-export default Dashboard;
+export default WithRouter(Dashboard);

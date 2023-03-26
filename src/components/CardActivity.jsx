@@ -6,8 +6,8 @@ function CardActivity(props) {
   return (
     <div
       data-cy="activity-item"
-      className="grid content-between w-36 h-36 lg:w-52 lg:h-52 bg-white pt-3 pb-4 px-4 lg:px-7 lg:py-6 mt-11 mx-5 lg:mx-56 rounded-xl shadow-md"
-      onClick={props.onClick}
+      className="grid content-between w-36 h-36 lg:w-52 lg:h-52 bg-white pt-3 pb-4 px-4 lg:px-7 lg:py-6 rounded-xl shadow-md"
+      onClick={props.onNavigate}
     >
       <div>
         <h1
@@ -26,7 +26,7 @@ function CardActivity(props) {
         </p>
         <TbTrash
           data-cy="activity-item-delete-button"
-          onClick={props.onClick}
+          onClick={props.delete}
           className="text-Line1"
         />
       </div>
