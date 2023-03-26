@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Layout from "../components/Layout";
+import Button from "../components/Button";
 import DashboardEmpty from "../components/DashboardEmpty";
 import CardActivity from "../components/CardActivity";
 
