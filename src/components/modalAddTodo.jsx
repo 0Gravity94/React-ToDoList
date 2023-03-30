@@ -1,6 +1,7 @@
 import React from "react";
 
 import { IoIosClose } from "react-icons/io";
+import DropdownPriority from "./DropdownPriority";
 
 function ModalAddTodo() {
   return (
@@ -14,7 +15,10 @@ function ModalAddTodo() {
       <div data-cy="modal-add">
         <input type="checkbox" id="my-modal-4" className="modal-toggle" />
         <label htmlFor="my-modal-4" className="modal cursor-pointer">
-          <label htmlFor="" className="modal-box p-0 w-100%">
+          <label
+            htmlFor=""
+            className="modal-box p-0 max-w-screen-lg overflow-visible"
+          >
             <div className="flex justify-between items-center lg:pt-6 lg:px-7">
               <h1
                 data-cy="modal-add-title"
@@ -42,7 +46,7 @@ function ModalAddTodo() {
                   data-cy="modal-add-name-input"
                   type="text"
                   placeholder="Tambahkan nama list item"
-                  className="w-full placeholder:text-Line3 border border-BgGray2 rounded-md px-4 py-4 lg:py-3 lg:px-5"
+                  className="w-full text-Title placeholder:text-Line3 border border-BgGray2 focus:outline-none focus:border-BgBlue rounded-md px-4 py-4 lg:py-3 lg:px-5"
                 />
               </div>
               <div className="grid lg:pt-6 lg:pb-6">
@@ -52,6 +56,7 @@ function ModalAddTodo() {
                 >
                   PRIORITY
                 </p>
+                <DropdownPriority />
               </div>
             </div>
             <hr />

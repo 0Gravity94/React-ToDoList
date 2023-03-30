@@ -16,7 +16,7 @@ module.exports = {
         PriorityOrange: "#F8A541",
         PriorityGreen: "#00A790",
         PriorityBlue: "#428BC1",
-        PriorityPurple: "#428BC1",
+        PriorityPurple: "#8942C1",
       },
     },
   },
