@@ -18,7 +18,7 @@ function ListItems(props) {
           className="w-2 h-2 bg-PriorityRed rounded-full"
         ></div>
         <p data-cy="todo-item-title" className="text-lg text-Line1 font-medium">
-          Telur Ayam
+          {props.title}
         </p>
         <TbPencil
           data-cy="todo-item-edit-button"

@@ -1,9 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 
+import { WithRouter } from "../utils/Navigation";
 import { IoIosClose } from "react-icons/io";
 import DropdownPriority from "./DropdownPriority";
 
-function ModalAddTodo() {
+function ModalAddTodo(props) {
+  const { id } = props.params;
+  const [title, setTitle] = useState("");
+
+  function addTodo() {
+    axios
+      .post(`https://todo.api.devcode.gethired.id/activity-groups`, {
+        activity_group_id: id,
+        title: title,
+      })
+      .then(() => {
+        alert("list added");
+        location.reload();
+      })
+      .catch(() => {
+        alert("failed to add new activity");
+      });
+  }
+
   return (
     <div data-cy="todo-add-button">
       <label
@@ -47,6 +67,8 @@ function ModalAddTodo() {
                   type="text"
                   placeholder="Tambahkan nama list item"
                   className="w-full text-Title placeholder:text-Line3 border border-BgGray2 focus:outline-none focus:border-BgBlue rounded-md px-4 py-4 lg:py-3 lg:px-5"
+                  value={title}
+                  onChange={(e) => setTitle(e.target.value)}
                 />
               </div>
               <div className="grid lg:pt-6 lg:pb-6">
@@ -65,6 +87,7 @@ function ModalAddTodo() {
                 htmlFor="my-modal-4"
                 data-cy="modal-add-save-button"
                 className="flex justify-center items-center w-28 h-12 lg:w-36 lg:h-14 bg-BgBlue rounded-full lg:py-3 lg:px-3 text-white cursor-pointer"
+                onClick={addTodo}
               >
                 Simpan
               </label>
@@ -76,4 +99,4 @@ function ModalAddTodo() {
   );
 }
 
-export default ModalAddTodo;
+export default WithRouter(ModalAddTodo);
