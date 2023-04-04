@@ -13,6 +13,11 @@ import ModalAddTodo from "../components/modalAddTodo";
 function DetailActivity(props) {
   const { id } = props.params;
   const [datas, setDatas] = useState([]);
+  const [showForm, setShowForm] = useState(false);
+
+  const form = () => {
+    setShowForm(!showForm);
+  };
 
   const datasArray = Object.keys(datas).map((k) => datas[k]);
   console.log(datasArray);
@@ -45,15 +50,12 @@ function DetailActivity(props) {
               className="text-4xl text-Title cursor-pointer`"
               data-cy="todo-back-button"
             />
-            <h3
-              data-cy="todo-title"
-              className="lg:text-4xl font-bold text-Title"
-            >
-              {datasArray[1]}
-            </h3>
+
             <input
               type="text"
-              className="w-56 h-14 focus:w-96 bg-transparent text-base placeholder:text-4xl placeholder:text-Title  outline-none border focus:border-b-Title cursor-pointer"
+              data-cy="todo-title"
+              className="w-56 h-14 focus:w-96 bg-transparent text-base placeholder:text-4xl placeholder:text-Title lg:text-4xl font-bold text-Title outline-none border focus:border-b-Title cursor-pointer"
+              placeholder={datasArray[1]}
             />
             <TbPencil
               className="text-xl text-Line3 cursor-pointer"
@@ -62,14 +64,20 @@ function DetailActivity(props) {
           </div>
           <div className="flex justify-center items-center gap-4">
             <Sort />
-            <label
-              data-cy="todo-add-button"
-              htmlFor="my-modal-4"
-              className=" bg-BgBlue text-white text-xs lg:text-xl text-center font-semibold rounded-full py-2.5 lg:py-3.5 lg:px-4"
-            >
-              + Tambah
-            </label>
-            <ModalAddTodo />
+            <div>
+              <form>
+                <button
+                  data-cy="todo-add-button"
+                  className=" bg-BgBlue text-white text-xs lg:text-xl text-center font-semibold rounded-full py-2.5 lg:py-3.5 lg:px-4"
+                  onClick={form}
+                >
+                  + Tambah
+                </button>
+              </form>
+              {form && <ModalAddTodo />}
+            </div>
+            {/* <label htmlFor="my-modal-4">+ Tambah</label>
+            <ModalAddTodo /> */}
           </div>
         </div>
         <div>
