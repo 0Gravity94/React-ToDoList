@@ -6,22 +6,24 @@ import Layout from "../components/Layout";
 import Button from "../components/Button";
 import { TbChevronLeft, TbPencil } from "react-icons/tb";
 import DetailEmpty from "../components/DetailEmpty";
+import ListItems from "../components/ListItems";
 import Sort from "../components/Sort";
-import modalAddTodo from "../components/modalAddTodo";
 import ModalAddTodo from "../components/modalAddTodo";
 
 function DetailActivity(props) {
+  const { id } = props.params;
   const [datas, setDatas] = useState([]);
 
   const datasArray = Object.keys(datas).map((k) => datas[k]);
   console.log(datasArray);
+  const listTodo = datasArray[3];
+  console.log(listTodo);
 
   useEffect(() => {
     fetchDetail();
   }, []);
 
   function fetchDetail() {
-    const { id } = props.params;
     axios
       .get(`https://todo.api.devcode.gethired.id/activity-groups/${id}`)
       .then((res) => {
@@ -31,20 +33,6 @@ function DetailActivity(props) {
       })
       .catch((err) => {
         alert(err.toString());
-      });
-  }
-
-  function addListItems() {
-    axios
-      .post(`https://todo.api.devcode.gethired.id/todo-items`, {
-        activity_group_id: { id },
-        title: { title },
-      })
-      .then(() => {
-        location.reload();
-      })
-      .catch(() => {
-        alert("failed to add new activity");
       });
   }
 
@@ -74,7 +62,17 @@ function DetailActivity(props) {
             <ModalAddTodo />
           </div>
         </div>
-        <DetailEmpty />
+        <div>
+          {listTodo?.length !== 0 ? (
+            <div>
+              {listTodo?.map((list) => (
+                <ListItems title={list.title} />
+              ))}
+            </div>
+          ) : (
+            <DetailEmpty />
+          )}
+        </div>
       </Layout>
     </div>
   );

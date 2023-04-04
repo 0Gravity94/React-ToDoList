@@ -50,20 +50,20 @@ function ModalDelete(props) {
             <span className="font-bold">{props.title}</span>?
           </h3>
           <div className="modal-action flex items-center justify-center w-full h-full space-x-2 md:space-x-3">
-            <a
-              href="#"
+            <label
+              htmlFor="my-modal-4"
               data-cy="modal-delete-cancel-button"
               className="flex justify-center items-center w-28 h-12 lg:w-36 lg:h-14 bg-BgGray1 rounded-full lg:py-3 lg:px-3 text-Line2 cursor-pointer"
             >
               Batal
-            </a>
-            <button
+            </label>
+            <label
               data-cy="modal-delete-confirm-button"
               className="flex justify-center items-center w-28 h-12 lg:w-36 lg:h-14 bg-PriorityRed rounded-full lg:py-3 lg:px-3 text-white cursor-pointer"
               onClick={handleDelete}
             >
               Hapus
-            </button>
+            </label>
           </div>
         </label>
       </label>
