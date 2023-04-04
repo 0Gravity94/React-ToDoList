@@ -1,6 +1,7 @@
 import Select from "react-select";
 import { VscCircleFilled } from "react-icons/vsc";
 import { useState } from "react";
+import IndicatorPriority from "./IndicatorPriorit";
 
 import React from "react";
 
@@ -57,14 +58,14 @@ function DropdownPriority() {
 
   return (
     <div data-cy="modal-add-priority-dropdown">
-      <Select className="w-48" value={selectedOption} options={options} />
+      {/* <Select className="w-48" value={selectedOption} options={options} /> */}
 
-      {/* <select className="select w-48 h-10 border border-BgGray2">
+      <select className="select w-48 h-10 ">
         <option value="">
-          <VscCircleFilled />
+          <IndicatorPriority />
           Very High
         </option>
-      </select> */}
+      </select>
     </div>
   );
 }
