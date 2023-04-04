@@ -11,7 +11,7 @@ function ModalAddTodo(props) {
 
   function addTodo() {
     axios
-      .post(`https://todo.api.devcode.gethired.id/activity-groups`, {
+      .post(`https://todo.api.devcode.gethired.id/todo-items`, {
         activity_group_id: id,
         title: title,
       })
