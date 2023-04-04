@@ -45,12 +45,15 @@ function DetailActivity(props) {
               className="text-4xl text-Title cursor-pointer`"
               data-cy="todo-back-button"
             />
-
+            <h3
+              data-cy="todo-title"
+              className="lg:text-4xl font-bold text-Title"
+            >
+              {datasArray[1]}
+            </h3>
             <input
               type="text"
-              data-cy="todo-title"
-              className="w-56 h-14 focus:w-96 bg-transparent text-base placeholder:text-4xl placeholder:text-Title lg:text-4xl font-bold text-Title outline-none border focus:border-b-Title cursor-pointer"
-              placeholder={datasArray[1]}
+              className="w-56 h-14 focus:w-96 bg-transparent text-base placeholder:text-4xl placeholder:text-Title  outline-none border focus:border-b-Title cursor-pointer"
             />
             <TbPencil
               className="text-xl text-Line3 cursor-pointer"

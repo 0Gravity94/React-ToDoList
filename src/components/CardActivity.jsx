@@ -7,7 +7,7 @@ function CardActivity(props) {
       data-cy="activity-item"
       className="grid content-between w-36 h-36 lg:w-52 lg:h-52 bg-white pt-3 pb-4 px-4 lg:px-7 lg:py-6 rounded-xl shadow-md cursor-pointer"
     >
-      <div onClick={props.onNavigate}>
+      <div className="h-full" onClick={props.onNavigate}>
         <h1
           data-cy="activity-item-title"
           className="text-Title text-sm lg:text-lg font-bold"
