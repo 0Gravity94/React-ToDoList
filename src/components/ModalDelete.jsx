@@ -1,16 +1,17 @@
 import React from "react";
 import axios from "axios";
 
+import { WithRouter } from "../utils/Navigation";
 import Button from "./Button";
 import ModalInformation from "./ModalInformation";
 import { TbAlertTriangle, TbTrash } from "react-icons/tb";
 
 function ModalDelete(props) {
-  function handleDelete(id) {
+  const { id } = props.params;
+
+  function handleDelete() {
     axios
-      .delete(
-        `https://todo.api.devcode.gethired.id/activity-groups?email=reitodoapp@ymail.co/:${id}`
-      )
+      .delete(`https://todo.api.devcode.gethired.id/activity-groups/${id}`)
       .then(() => {
         alert("activity deleted");
       })
@@ -49,19 +50,20 @@ function ModalDelete(props) {
             <span className="font-bold">{props.title}</span>?
           </h3>
           <div className="modal-action flex items-center justify-center w-full h-full space-x-2 md:space-x-3">
-            <label
-              htmlFor="my-modal-4"
+            <a
+              href="#"
               data-cy="modal-delete-cancel-button"
               className="flex justify-center items-center w-28 h-12 lg:w-36 lg:h-14 bg-BgGray1 rounded-full lg:py-3 lg:px-3 text-Line2 cursor-pointer"
             >
               Batal
-            </label>
-            <Button
+            </a>
+            <button
               data-cy="modal-delete-confirm-button"
               className="flex justify-center items-center w-28 h-12 lg:w-36 lg:h-14 bg-PriorityRed rounded-full lg:py-3 lg:px-3 text-white cursor-pointer"
               onClick={handleDelete}
-              label="Hapus"
-            />
+            >
+              Hapus
+            </button>
           </div>
         </label>
       </label>
@@ -69,4 +71,4 @@ function ModalDelete(props) {
   );
 }
 
-export default ModalDelete;
+export default WithRouter(ModalDelete);

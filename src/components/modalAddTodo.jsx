@@ -25,8 +25,9 @@ function ModalAddTodo(props) {
   }
 
   return (
-    <div data-cy="todo-add-button">
+    <div>
       <label
+        data-cy="todo-add-button"
         htmlFor="my-modal-4"
         className=" bg-BgBlue text-white text-xs lg:text-xl text-center font-semibold rounded-full py-2.5 lg:py-3.5 lg:px-4"
       >

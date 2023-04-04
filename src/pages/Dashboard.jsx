@@ -75,10 +75,11 @@ function Dashboard(props) {
         <div className="grid grid-flow-row auto-rows-max grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-20 mt-11 mx-5 lg:mx-56">
           {datasArray[3]?.map((data) => (
             <CardActivity
+              key={data.id}
               title={data.title}
               date={moment(data.created_at).format("LL")}
               onNavigate={() => props.navigate(`/detail/${data.id}`)}
-              deleteTitle={data.title}
+              deleteTitle={data.id}
             />
           ))}
         </div>
